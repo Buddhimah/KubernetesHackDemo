@@ -1,0 +1,13 @@
+{
+    "name": "vulnerable-api-demo",
+    "version": "1.0.0",
+    "description": "A demo API with hardcoded database passwords.",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "express": "^4.17.1"
+    }
+  }
+  

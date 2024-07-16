@@ -1,18 +1,26 @@
-#!/bin/sh
-# http://www.cyberciti.biz/faq/linux-port-scanning/
-# Introduction:
-#    If nmap is not installed try nc / netcat command. 
-#    The -z flag can be used to tell nc to report open ports, rather than initiate a connection.
-#    e.g. nc -z 172.16.2.54 1-65535
+#!/bin/bash
 
+# IP address provided as the first argument
 IP="$1"
-PORT="8442-8445"
 
-if [ -z "$1" ] ; then
-    echo "Usage: $0 [IP ADDR] [PORT RANGE]"
-    exit
+# Default port range
+PORT="30004 8443"
+
+# Check if the IP address is provided
+if [ -z "$1" ]; then
+    echo "Usage: $0 [IP ADDR]"
+    exit 1
 fi
 
-[ -n "$2" ] && PORT="$2"
+# Check if the port range is provided
+if [ -n "$2" ]; then
+    PORT="$2"
+fi
 
-nc -z $IP $PORT
+# Split the PORT string into an array
+IFS=' ' read -r -a ports <<< "$PORT"
+
+# Scan specified ports using nc
+for port in "${ports[@]}"; do
+    nc -zv "$IP" "$port"
+done

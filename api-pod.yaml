@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: vulnerable-api-demo
+  namespace: dev-nginx-pods
+  labels:
+    environment: production
+    app: apipod
+spec:
+  containers:
+  - name: vulnerable-api
+    image: buddhimah/vulnerable-api-demo:latest
+    ports:
+    - containerPort: 3000

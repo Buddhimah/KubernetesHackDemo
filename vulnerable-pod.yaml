@@ -23,7 +23,7 @@ spec:
           - name: http
             containerPort: 8080
             protocol: TCP
-      serviceAccountName: admin-service-account
+      serviceAccountName: web-service-account
       restartPolicy: Always
 ---
 apiVersion: v1
